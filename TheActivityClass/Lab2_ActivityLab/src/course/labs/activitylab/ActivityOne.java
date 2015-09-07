@@ -62,109 +62,57 @@ public class ActivityOne extends Activity {
 			}
 		});
 
-		// Has previous state been saved?
-		if (savedInstanceState != null) {
-
-			// TODO:
-			// Restore value of counters from saved state
-			// Only need 4 lines of code, one for every count variable
-
-		}
-
-		// Emit LogCat message
-		Log.i(TAG, "Entered the onCreate() method");
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface via the displayCounts() method
+		// Emit LogCat message using the Log.i method
 
 	}
 
-	// Lifecycle callback overrides
+
 
 	@Override
 	public void onStart() {
 		super.onStart();
 
-		// Emit LogCat message
-		Log.i(TAG, "Entered the onStart() method");
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
+		// Emit LogCat message using the Log.i method
 	}
 
 	@Override
 	public void onResume() {
-		super.onResume();
-
-		// Emit LogCat message
-		Log.i(TAG, "Entered the onResume() method");
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
+        super.onResume();
+		// Emit LogCat message using the Log.i method
 	}
 
 	@Override
 	public void onPause() {
-		super.onPause();
-
-		// Emit LogCat message
-		Log.i(TAG, "Entered the onPause() method");
+        super.onPause();
+		// Emit LogCat message using the Log.i method
 	}
 
 	@Override
 	public void onStop() {
-		super.onStop();
-
-		// Emit LogCat message
-		Log.i(TAG, "Entered the onStop() method");
+        super.onStop();
+		// Emit LogCat message using the Log.i method
 	}
 
 	@Override
 	public void onRestart() {
-		super.onRestart();
-
-		// Emit LogCat message
-		Log.i(TAG, "Entered the onRestart() method");
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
+        super.onRestart();
+		// Emit LogCat message using the Log.i method
 
 	}
 
 	@Override
 	public void onDestroy() {
-		super.onDestroy();
-
-		// Emit LogCat message
-		Log.i(TAG, "Entered the onDestroy() method");
+        super.onDestroy();
+		// Emit LogCat message using the Log.i method
 	}
 
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
-		// TODO:
-		// Save state information with a collection of key-value pairs
-		// 4 lines of code, one for every count variable
 
 	}
 
-	// Updates the displayed counters
-	// This method expects that the counters and TextView variables use the
-	// names
-	// specified above
+
 	public void displayCounts() {
 
-		// TODO - uncomment these lines
-	/*
-		mTvCreate.setText("onCreate() calls: " + mCreate);
-		mTvStart.setText("onStart() calls: " + mStart);
-		mTvResume.setText("onResume() calls: " + mResume);
-		mTvRestart.setText("onRestart() calls: " + mRestart);
-	*/
 	}
 }
