@@ -81,13 +81,13 @@ public class ActivityLoaderActivity extends Activity {
 		Log.i(TAG, "Entered startImplicitActivation()");
         
 		// TODO - Create a base intent for viewing a URL
-		// (HINT:  second parameter uses Uri.parse())
+
 		
         Intent baseIntent = null;
 		
 		// TODO - Create a chooser intent, for choosing which Activity
 		// will carry out the baseIntent
-		// (HINT: Use the Intent class' createChooser() method)
+
 		Intent chooserIntent = null;
         
         
