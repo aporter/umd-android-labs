@@ -103,7 +103,6 @@ public class DownloaderTask extends AsyncTask<Integer, Void, String[]> {
                 }
 	
 	
-		// TODO: Uncomment this helper method
 		// Simulates downloading Twitter data from the network
 
 	  private String[] downloadTweets(Integer resourceIDS[]) {
