@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.gesture.GestureOverlayView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gestures_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gestureStrokeLengthThreshold="200.0" >
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" >
+    </FrameLayout>
+
+</android.gesture.GestureOverlayView>
