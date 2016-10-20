@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 public class DownloaderTaskFragment extends Fragment {
 
+	private DownloaderTask mDownloaderTask;
 	private DownloadFinishedListener mCallback;
 	private Context mContext;
 	private final int MY_NOTIFICATION_ID = 11151990;
@@ -41,16 +42,24 @@ public class DownloaderTaskFragment extends Fragment {
 		setRetainInstance(true);
 
 		// TODO: Create new DownloaderTask that "downloads" data
+		mDownloaderTask = null;
+		
+				// TODO: Retrieve arguments from DownloaderTaskFragment
+		// Prepare them for use with DownloaderTask. Place arguments
+		// in an Integer [] called feeds.
+
+
+
+		Integer [] feeds = null;
+
 
 		
-		// TODO: Retrieve arguments from DownloaderTaskFragment
-		// Prepare them for use with DownloaderTask.
+		
+		// Start the DownloaderTask
+			if (null != mDownloaderTask) {
+			mDownloaderTask.execute(feeds);
+		}
 
-
-		
-		
-		
-		// TODO: Start the DownloaderTask
 
 		
 	}
@@ -80,25 +89,22 @@ public class DownloaderTaskFragment extends Fragment {
 		mCallback = null;
 	}
 
-	// TODO: Implement an AsyncTask subclass called DownLoaderTask.
-	// This class must use the downloadTweets method (currently commented
+	// Implement an AsyncTask subclass called DownLoaderTask.
+	// This class uses the downloadTweets method (currently commented
 	// out). Ultimately, it must also pass newly available data back to
 	// the hosting Activity using the DownloadFinishedListener interface.
 
-	// public class DownloaderTask extends ...
 
+public class DownloaderTask extends AsyncTask<Integer, Void, String[]> {
 
+                @Override
+                protected String[] doInBackground(Integer... resourceIDs) {
+                        return downloadTweets(resourceIDs);
+                }
 	
 	
-	
-	
-	
-	
-		// TODO: Uncomment this helper method
 		// Simulates downloading Twitter data from the network
 
-/* 
-	 
 	  private String[] downloadTweets(Integer resourceIDS[]) {
 	 
 			final int simulatedDelay = 2000;
@@ -147,13 +153,11 @@ public class DownloaderTaskFragment extends Fragment {
 			return feeds;
 
 		}
-*/
-		// Uncomment this helper method.
+
 		// If necessary, notifies the user that the tweet downloads are
 		// complete. Sends an ordered broadcast back to the BroadcastReceiver in
 		// MainActivity to determine whether the notification is necessary.
 
-	/*
 		private void notify(final boolean success) {
 
 			final Intent restartMainActivityIntent = new Intent(mContext,
@@ -243,12 +247,9 @@ public class DownloaderTaskFragment extends Fragment {
 					}, null, 0, null, null);
 		}
 
-*/
 	
-		// Uncomment this helper method
 		// Saves the tweets to a file
 	
-/*	
 		private void saveTweetsToFile(String[] result) {
 			PrintWriter writer = null;
 			try {
@@ -268,9 +269,18 @@ public class DownloaderTaskFragment extends Fragment {
 				}
 			}
 		}
-*/
 
 
+                // Pass newly available data back to hosting Activity
+                // using the DownloadFinishedListener interface
+                @Override
+                protected void onPostExecute(String[] result) {
+                        super.onPostExecute(result);
+
+                        if (null != mCallback) {
+                                mCallback.notifyDataRefreshed(result);
+                        }
+                }	
 	
 	
 	
@@ -279,6 +289,5 @@ public class DownloaderTaskFragment extends Fragment {
 	
 	
 	
-	
-	
+	}	
 }
