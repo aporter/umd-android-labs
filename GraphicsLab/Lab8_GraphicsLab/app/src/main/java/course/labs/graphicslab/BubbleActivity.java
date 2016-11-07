@@ -103,9 +103,7 @@ public class BubbleActivity extends Activity {
 
 	@Override
 	protected void onPause() {
-
-		// TODO - Release all SoundPool resources
-
+        
 		mSoundPool.unload(mSoundID);
 		mSoundPool.release();
 		mSoundPool = null;
@@ -165,8 +163,11 @@ public class BubbleActivity extends Activity {
 
 				// TODO - set rotation in range [1..3]
 				
+                
 			} else {
+                
 				mDRotate = 0;
+                
 			}
 		}
 
@@ -195,6 +196,13 @@ public class BubbleActivity extends Activity {
 				// direction to [-3..3] pixels per movement.
 
 
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 			}
 		}
 
@@ -211,6 +219,7 @@ public class BubbleActivity extends Activity {
 
 			// TODO - create the scaled bitmap using size set above
 			
+            
 		}
 
 		// Start moving the BubbleView & updating the display
@@ -233,6 +242,9 @@ public class BubbleActivity extends Activity {
 					// stop the BubbleView's Worker Thread.
 					// Otherwise, request that the BubbleView be redrawn.
 
+                    
+                    
+                    
 					
 				}
 			}, 0, REFRESH_RATE, TimeUnit.MILLISECONDS);
@@ -257,10 +269,17 @@ public class BubbleActivity extends Activity {
 
 						// TODO - Remove the BubbleView from mFrame
 						
+                        
+                        
+                        
 
 						// TODO - If the bubble was popped by user,
 						// play the popping sound
 						
+                        
+                        
+                        
+                        
 						Log.i(TAG, "Bubble removed from view!");
 					}
 				});
@@ -282,9 +301,11 @@ public class BubbleActivity extends Activity {
 
 
 
-			// TODO - draw the bitmap at it's new location
+			
+            // TODO - draw the bitmap at it's new location
 
-			// TODO - restore the canvas
+			
+            // TODO - restore the canvas
 			
 
 		}
@@ -297,7 +318,8 @@ public class BubbleActivity extends Activity {
 
 			
 
-			return isOutOfView();
+			
+            return isOutOfView();
 
 		}
 
@@ -309,7 +331,9 @@ public class BubbleActivity extends Activity {
 			// the move operation
 
 			return true || false;
-		}
+		
+        
+        }
 	}
 
 	@Override
@@ -336,7 +360,23 @@ public class BubbleActivity extends Activity {
 		// Hint: You can get all Views in mFrame using the 
 		// ViewGroup.getChildCount() method
 		switch (item.getItemId()) {
-		case R.id.menu_still_mode:
+		
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        case R.id.menu_still_mode:
 			speedMode = STILL;
 			return true;
 		case R.id.menu_single_speed:
