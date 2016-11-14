@@ -506,9 +506,6 @@ public class BubbleActivity extends Activity implements
 			// operation
 			private boolean isOutOfView() {
 
-				// Return true if the BubbleView is still on the screen after
-				// the move operation
-
 				return (mXPos < 0 - mScaledBitmapWidth || mXPos > mDisplayWidth
 						|| mYPos < 0 - mScaledBitmapWidth || mYPos > mDisplayHeight);
 			}
