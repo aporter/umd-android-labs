@@ -84,16 +84,17 @@ public class BubbleActivity extends Activity implements
 		mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.b64);
 
 		// TODO - Fetch GestureLibrary from raw
-		mLibrary = GestureLibraries.fromRawResource(this, R.raw.gestures);
 
+        
 		GestureOverlayView gestureOverlay = (GestureOverlayView) findViewById(R.id.gestures_overlay);
 
 		// TODO - Make this the target of gesture detection callbacks
 
-		// TODO - implement OnTouchListener to pass all events received by the
-		// gestureOverlay to
-		// the basic gesture detector
-		gestureOverlay.setOnTouchListener(new OnTouchListener() {
+
+        // TODO - implement OnTouchListener to pass all events received by the
+		// gestureOverlay to the basic gesture detector
+		
+        gestureOverlay.setOnTouchListener(new OnTouchListener() {
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -101,7 +102,10 @@ public class BubbleActivity extends Activity implements
 			}
 		});
 
-		// Uncomment next line to turn off gesture highlights
+		
+        
+        
+        // Uncomment next line to turn off gesture highlights
 		// gestureOverlay.setUncertainGestureColor(Color.TRANSPARENT);
 
 		// Loads the gesture library
@@ -127,18 +131,18 @@ public class BubbleActivity extends Activity implements
 		// Make a new SoundPool, allowing up to 10 streams
 		mSoundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
 
-		// Set a SoundPool OnLoadCompletedListener that calls
+		// TODO - Set a SoundPool OnLoadCompletedListener that calls
 		// setupGestureDetector()
 		mSoundPool.setOnLoadCompleteListener(new OnLoadCompleteListener() {
 			@Override
 			public void onLoadComplete(SoundPool soundPool, int sampleId,
 					int status) {
-				setupGestureDetector();
-			}
+
+            }
 		});
 
-		// Load the sound from res/raw/bubble_pop.wav
-		mSoundID = mSoundPool.load(this, R.raw.bubble_pop, 1);
+		// TODO - Load the sound from res/raw/bubble_pop.wav
+        mSoundID = 0;
 
 	}
 
@@ -167,18 +171,17 @@ public class BubbleActivity extends Activity implements
 					public boolean onFling(MotionEvent event1,
 							MotionEvent event2, float velocityX, float velocityY) {
 
-						// Implement onFling actions.
+						// TODO - Implement onFling actions.
 						// You can get all Views in mFrame one at a time
 						// using the ViewGroup.getChildAt() method
 
-						for (int i = 0; i < mFrame.getChildCount(); i++) {
-							BubbleView child = (BubbleView) mFrame
-									.getChildAt(i);
-							if (child.intersects(event1.getX(), event1.getY())) {
-								child.deflect(velocityX, velocityY);
-							}
-						}
-						return true;
+
+                        
+                        
+                        
+                        
+                        
+						return true || false;
 					}
 
 					// If a single tap intersects a BubbleView, then pop the
@@ -191,29 +194,29 @@ public class BubbleActivity extends Activity implements
 					@Override
 					public boolean onSingleTapConfirmed(MotionEvent event) {
 
-						// Implement onSingleTapConfirmed actions.
+						// TODO - Implement onSingleTapConfirmed actions.
 						// You can get all Views in mFrame using the
 						// ViewGroup.getChildCount() method
 
-						boolean handledByChild = false;
 
-						for (int i = 0; i < mFrame.getChildCount(); i++) {
-							BubbleView child = (BubbleView) mFrame
-									.getChildAt(i);
-							if (child.intersects(event.getX(), event.getY())) {
-								child.stop(true);
-								handledByChild = true;
-							}
-						}
-
-						if (!handledByChild) {
-							final BubbleView bubbleView = new BubbleView(
-									BubbleActivity.this, event.getX(), event
-											.getY());
-							mFrame.addView(bubbleView);
-							bubbleView.start();
-						}
-						return true;
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+						return true || false;
 					}
 
 					// Good practice to override this method because all
@@ -238,8 +241,8 @@ public class BubbleActivity extends Activity implements
 	}
 
 	public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
-		// TODO - Get gesture predictions
 
+        // TODO - Get gesture predictions
 		ArrayList<Prediction> predictions = null;
 
 		if (predictions.size() > 0) {
@@ -247,14 +250,34 @@ public class BubbleActivity extends Activity implements
 			// Get highest-ranked prediction
 			Prediction prediction = predictions.get(0);
 
-			// TODO - Ignore predictions with a score of < MIN_PRED_SCORE and display a
+			
+            // TODO - Ignore predictions with a score of < MIN_PRED_SCORE and display a
 			// toast message informing the user that no prediction was made. If
 			// the prediction
 			// matches the openMenu gesture, open the menu. If the prediction
 			// matches
 			// the addTen gesture, add 10 bubbles to the screen.
 
-		}
+        } else {
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
 	}
 		// BubbleView is a View that displays a bubble.
 		// This class handles animating, drawing, and popping amongst other
@@ -356,8 +379,7 @@ public class BubbleActivity extends Activity implements
 				} else {
 
 					// Set scaled bitmap size in range [1..3] * BITMAP_SIZE
-					mScaledBitmapWidth = r.nextInt(2 * BITMAP_SIZE)
-							+ BITMAP_SIZE;
+					mScaledBitmapWidth = r.nextInt(2 * BITMAP_SIZE) + BITMAP_SIZE;
 
 				}
 
@@ -467,12 +489,11 @@ public class BubbleActivity extends Activity implements
 
 			}
 
-			// Returns true if the BubbleView is still on the screen after the
-			// move
+			// Returns true if the BubbleView is still on the screen after the move
 			// operation
 			private synchronized boolean moveWhileOnScreen() {
 
-				// TODO - Move the BubbleView
+				// Move the BubbleView
 
 				mXPos = mXPos += mDx;
 				mYPos = mYPos += mDy;
@@ -481,16 +502,14 @@ public class BubbleActivity extends Activity implements
 
 			}
 
-			// Return true if the BubbleView is still on the screen after the
-			// move
+			// Return true if the BubbleView is still on the screen after the move
 			// operation
 			private boolean isOutOfView() {
 
-				// TODO - Return true if the BubbleView is still on the screen
-				// after
+				// Return true if the BubbleView is still on the screen after
 				// the move operation
 
-				return (mXPos < 0 - mScaledBitmapWidth || mXPos > mDisplayWidth
+				return !(mXPos < 0 - mScaledBitmapWidth || mXPos > mDisplayWidth
 						|| mYPos < 0 - mScaledBitmapWidth || mYPos > mDisplayHeight);
 			}
 		}
