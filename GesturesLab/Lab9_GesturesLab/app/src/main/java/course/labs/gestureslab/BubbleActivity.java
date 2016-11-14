@@ -509,7 +509,7 @@ public class BubbleActivity extends Activity implements
 				// Return true if the BubbleView is still on the screen after
 				// the move operation
 
-				return !(mXPos < 0 - mScaledBitmapWidth || mXPos > mDisplayWidth
+				return (mXPos < 0 - mScaledBitmapWidth || mXPos > mDisplayWidth
 						|| mYPos < 0 - mScaledBitmapWidth || mYPos > mDisplayHeight);
 			}
 		}
