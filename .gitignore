@@ -12,11 +12,6 @@
 bin/
 gen/
 
-# Gradle files
-.gradle/
-build/
-/*/build/
-
 # Local configuration file (sdk path, etc)
 local.properties
 
@@ -28,3 +23,12 @@ proguard/
 
 # Mac files
 .DS_Store
+
+# Android Studio
+*.iml
+.idea
+.gradle
+build/
+
+#NDK
+obj/
